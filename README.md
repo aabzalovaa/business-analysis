@@ -21,3 +21,4 @@
 - [Нефункциональные требования](requirements/non-functional-requirements.md)
 - [Use Cases](use-cases/use-cases.md)
 - [Целевая аудитория](target-audience.md)
+- [Метрики](metrics.md)
