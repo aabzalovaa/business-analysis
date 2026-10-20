@@ -19,30 +19,32 @@
 ## FR-007. Схема переходов между статусами задачи
 
 Схема:
-        
-             ┌────────────┐
-             │   Новая    │
-             └─────┬──────┘
-                   │
-                   ▼
-          ┌────────────────┐
-          │  В процессе    │
-          └──┬────────┬────┘
-             │        │
-             │        ▼
-             │   ┌────────────┐
-             │   │ Отложена   │
-             │   └─────┬──────┘
-             │         │
-             └─────────┘
-                   │
-                   ▼
-            ┌────────────┐
-            │ Выполнена  │
-            └────────────┘
+```mermaid
+stateDiagram-v2
+    direction LR
 
-### Допустимые переходы в статус «Отменена»
+    state "Новая" as New
+    state "В процессе" as InProgress
+    state "Отложена" as Postponed
+    state "Выполнена" as Done
+    state "Отменена" as Cancelled
 
-- Новая → Отменена
-- В процессе → Отменена
-- Отложена → Отменена
+    [*] --> New
+
+    New --> InProgress
+    New --> Postponed
+    New --> Done
+    New --> Cancelled
+
+    InProgress --> Postponed
+    Postponed --> InProgress
+
+    InProgress --> Done
+    Postponed --> Done
+
+    InProgress --> Cancelled
+    Postponed --> Cancelled
+
+    Cancelled --> [*]
+    Done --> [*]
+```
