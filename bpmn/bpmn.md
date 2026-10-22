@@ -8,6 +8,6 @@
 
 | Процесс | Диаграмма |
 |---------|-----------|
-| Формирование рекомендаций | [PNG](bpmn/recommendation-process.png) • [BPMN](bpmn/recommendation-process.bpmn) |
+| Формирование рекомендаций | [PNG](recommendation-process.png) • [BPMN](recommendation-process.bpmn) |
 
 
